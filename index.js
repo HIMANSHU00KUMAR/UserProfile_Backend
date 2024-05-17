@@ -16,13 +16,19 @@ app.use(express.static('public'));
 dbConnect();
 // Middleware to parse incoming request bodies as JSON
 app.use(express.json());
+app.use(express.json({ limit: "30mb", extended: true }));
+app.use(express.urlencoded({ limit: "30mb", extended: true }));
 
-app.use(cors({
-  origin: 'http://localhost:5173',
-  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-  allowedHeaders: ['Content-Type', 'Authorization'],
-  credentials: true
-}));
+const options = [
+  cors({
+    origin: '*',
+    methods: '*',
+    allowedHeaders: ['Content-Type', 'Authorization'],
+    credentials: true,
+  })
+];
+
+app.use(options);
 
 
   const cpUpload = upload.fields([{ name: 'profilePhoto' }, { name: 'coverPhoto'}])
