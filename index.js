@@ -24,6 +24,7 @@ app.use(cors({
   credentials: true
 }));
 
+app.use('api/users');
   const cpUpload = upload.fields([{ name: 'profilePhoto' }, { name: 'coverPhoto'}])
   // app.post('/upload', cpUpload, (req, res) => {
   //   console.log("upload image ka hain = ",req.files)
