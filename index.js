@@ -18,7 +18,7 @@ dbConnect();
 app.use(express.json());
 const options = [
     cors({
-      origin: '*',
+      origin: 'http://localhost:5173',
       methods: '*',
       allowedHeaders: ['Content-Type', 'Authorization'],
       credentials: true,
