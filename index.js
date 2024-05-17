@@ -19,16 +19,9 @@ app.use(express.json());
 app.use(express.json({ limit: "30mb", extended: true }));
 app.use(express.urlencoded({ limit: "30mb", extended: true }));
 
-const options = [
-  cors({
-    origin: '*',
-    methods: '*',
-    allowedHeaders: ['Content-Type', 'Authorization'],
-    credentials: true,
-  })
-];
+app.use(cors());
 
-app.use(options);
+
 
 
   const cpUpload = upload.fields([{ name: 'profilePhoto' }, { name: 'coverPhoto'}])
